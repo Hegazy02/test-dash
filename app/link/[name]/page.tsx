@@ -2,7 +2,9 @@
 import { redirect } from "next/navigation";
 
 async function getShortcut(name: string) {
-  const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+  // const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+  const baseUrl = "https://test-dash-seven.vercel.app";
+
   const res = await fetch(`${baseUrl}/api/link/link?name=${name}&inc=1`, { cache: "no-store" });
   if (!res.ok) return null;
   return res.json();
