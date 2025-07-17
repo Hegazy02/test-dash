@@ -16,10 +16,10 @@ export const metadata: Metadata = {
 
 async function getBlogPost(blogID: string) {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+    // const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
     console.log("Fetching blog post with blogID:", blogID);
-    console.log("Using base URL:", baseUrl);
-
+    // console.log("Using base URL:", baseUrl);
+    const baseUrl = "https://test-dash-seven.vercel.app";
     const url = `${baseUrl}/api/blog/blog?blogID=${blogID}`;
     console.log("Full URL:", url);
     console.log("Full blogID:", blogID);
@@ -42,7 +42,7 @@ async function getBlogPost(blogID: string) {
       const errorText = await response.text();
       console.error("Error response:", errorText);
       throw new Error(
-        `Failed to fetch blog post: ${response.status} - ${errorText}`,
+        `Failed to fetch blog post: ${response.status} - ${errorText}`
       );
     }
 
