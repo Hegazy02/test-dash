@@ -144,7 +144,7 @@ BlogPostSchema.pre("findOneAndUpdate", function (next) {
 });
 
 BlogPostSchema.index({ siteId: 1, slug: 1 }, { unique: true });
-BlogPostSchema.index({ blogID: 1 }, { unique: true });
+// BlogPostSchema.index({ blogID: 1 }, { unique: true });
 BlogPostSchema.index({ blogType: 1 });
 BlogPostSchema.index({ publishedAt: -1 });
 BlogPostSchema.index({ isFeatured: 1 });

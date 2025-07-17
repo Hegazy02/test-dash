@@ -22,6 +22,7 @@ async function getBlogPost(blogID: string) {
 
     const url = `${baseUrl}/api/blog/blog?blogID=${blogID}`;
     console.log("Full URL:", url);
+    console.log("Full blogID:", blogID);
 
     const response = await fetch(url, {
       cache: "no-store",
