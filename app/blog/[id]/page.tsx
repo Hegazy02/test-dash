@@ -63,27 +63,20 @@ async function getBlogPost(blogID: string) {
 }
 
 interface PageProps {
-  params: Promise<{
+  params: {
     id: string; // This will actually be the blogID
-  }>;
+  };
 }
 
 export default async function EditBlogPostPage({ params }: PageProps) {
-  const resolvedParams = await params;
-
-  if (!resolvedParams?.id) {
-    console.log("No blogID provided");
+  if (!params?.id) {
     notFound();
   }
 
-  // The 'id' parameter is actually the blogID
-  const blogID = resolvedParams.id;
-  console.log("Attempting to edit blog with blogID:", blogID);
-
+  const blogID = params.id;
   const result = await getBlogPost(blogID);
 
   if (!result.success || !result.post) {
-    console.error("Failed to fetch blog post:", result.error);
     notFound();
   }
 
