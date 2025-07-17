@@ -156,5 +156,6 @@ function createModel(modelName, schema) {
   return mongoose.model(modelName, schema);
 }
 
+
 const BlogPost = createModel("BlogPost", BlogPostSchema);
 export default BlogPost;
